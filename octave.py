@@ -64,7 +64,7 @@ def get_column_name(columns, target_keywords):
 with tab2:
     st.subheader("Totaux calculés par site")
 
-    file2 = st.file_uploader("📂 Fichier de résultats (onglet Résultat)", type="xlsx", key="resultat")
+    file2 = st.file_uploader("📂 charger le fichier y_PCA ", type="xlsx", key="resultat")
 
     if file2:
         df_raw = pd.read_excel(file2, sheet_name="Résultat")
@@ -125,7 +125,7 @@ with tab2:
 with tab1:
     st.subheader("Analyse des échéances mensuelles")
 
-    file1 = st.file_uploader("📂 Fichier des échéances", type="xlsx", key="echeance")
+    file1 = st.file_uploader("📂 Charger le fichier y_Pilotage", type="xlsx", key="echeance")
 
     def calculer_echeances_par_mois(df):
         df = normaliser_colonnes(df)
