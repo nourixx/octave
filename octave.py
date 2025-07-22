@@ -203,7 +203,7 @@ with tab1:
 
 # ===== Onglet analyse fichier analytique =====
 with tab_analyse:
-    st.header("Budger du CFA")
+    st.header("Budget du CFA")
 
     uploaded_file = st.file_uploader("📤 Charger la balance analytique", type=["xlsx"])
 
