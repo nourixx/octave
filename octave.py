@@ -203,9 +203,9 @@ with tab1:
 
 # ===== Onglet analyse fichier analytique =====
 with tab_analyse:
-    st.header("Analyse par Code Journal")
+    st.header("Budger du CFA")
 
-    uploaded_file = st.file_uploader("📤 Charger un fichier Excel", type=["xlsx"])
+    uploaded_file = st.file_uploader("📤 Charger la balance analytique", type=["xlsx"])
 
     if uploaded_file:
         try:
@@ -260,15 +260,3 @@ with tab_analyse:
 
 
 
-#reste a faire : 
-#-mise en page de l'application: html et css 
-#-gestion des erreurs et des exceptions
-#-ajout de graphiques pour visualiser les données
-#-ajout de fonctionnalités avancées (export des résultats, etc.)
-#-optimisation des performances
-#-tests unitaires et validation des résultats   
-# faire le logo d'octave 
-#- integrer le logo octave dans l'application 
-#- deploimennt de l'applicatiuon sur le serveur 
-#- essayer de voir si on peut securiser l'acces a l'application avec des identifiants dt des mopts de passe
-#- veuillez a que tout soit bien securise et qu'il ya pas de faille de securité . 
