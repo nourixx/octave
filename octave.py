@@ -187,7 +187,19 @@ with tab1:
             annee_choisie = st.selectbox("📅 Filtrer le tableau par année", annees_dispo, index=len(annees_dispo)-1)
 
             res1_filtré = res1[res1["ANNEE"] == annee_choisie]
-            st.dataframe(res1_filtré.drop(columns=["ANNEE"]), use_container_width=True, height=400)
+            # Ajouter une ligne "Total"
+            total_general = res1_filtré["VALEUR_ECHEANCE"].sum()
+            ligne_total = pd.DataFrame({ "Mois": ["TOTAL"],"VALEUR_ECHEANCE": [total_general],"ANNEE": [annee_choisie]})
+
+            res1_filtré_total = pd.concat([res1_filtré, ligne_total], ignore_index=True)
+            def color_ligne_total(row):
+                if row["Mois"] == "TOTAL":
+                    return ['background-color: #fff3b0'] * len(row)  # Jaune pâle
+                else:
+                    return [''] * len(row)
+
+            styled_df = res1_filtré_total.drop(columns=["ANNEE"]).style.apply(color_ligne_total, axis=1)
+            st.dataframe(styled_df, use_container_width=True, height=400)
 
             df_base["ANNEE"] = df_base["DATE"].dt.year
             df_base["MOIS"] = df_base["DATE"].dt.month
